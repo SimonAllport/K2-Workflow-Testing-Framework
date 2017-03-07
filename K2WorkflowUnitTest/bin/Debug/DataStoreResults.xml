@@ -1,0 +1,17 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Settings>
+  <ProcessName>K2Project2\TestProcess</ProcessName>
+  <Folio>I am a folio 3</Folio>
+  <ProcessInstanceId>10955</ProcessInstanceId>
+  <StartStatus>Running</StartStatus>
+  <TaskCount Actual="1">0</TaskCount>
+  <SerialNumber>10955_15</SerialNumber>
+  <Destination>K2:CHANNEL4\SVCK2MINTMULEUSER</Destination>
+  <Actions>Task</Actions>
+  <ActionResult>Approve</ActionResult>
+  <Activities>
+    <Activity>
+      <Event name="Status Check">Pass</Event>
+    </Activity>
+  </Activities>
+</Settings>

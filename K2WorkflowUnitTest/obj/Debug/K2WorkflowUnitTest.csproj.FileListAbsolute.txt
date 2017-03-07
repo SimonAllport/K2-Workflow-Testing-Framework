@@ -1,0 +1,13 @@
+C:\Users\adm_sat\Documents\Visual Studio 2015\Projects\K2WorkFlowMap\K2WorkflowUnitTest\bin\Debug\DataStoreResults.xml
+C:\Users\adm_sat\Documents\Visual Studio 2015\Projects\K2WorkFlowMap\K2WorkflowUnitTest\bin\Debug\K2WorkflowUnitTest.dll
+C:\Users\adm_sat\Documents\Visual Studio 2015\Projects\K2WorkFlowMap\K2WorkflowUnitTest\bin\Debug\K2WorkflowUnitTest.pdb
+C:\Users\adm_sat\Documents\Visual Studio 2015\Projects\K2WorkFlowMap\K2WorkflowUnitTest\bin\Debug\K2WorkflowMap.dll
+C:\Users\adm_sat\Documents\Visual Studio 2015\Projects\K2WorkFlowMap\K2WorkflowUnitTest\bin\Debug\Microsoft.VisualStudio.QualityTools.UnitTestFramework.dll
+C:\Users\adm_sat\Documents\Visual Studio 2015\Projects\K2WorkFlowMap\K2WorkflowUnitTest\bin\Debug\SourceCode.Workflow.Client.dll
+C:\Users\adm_sat\Documents\Visual Studio 2015\Projects\K2WorkFlowMap\K2WorkflowUnitTest\bin\Debug\SourceCode.Workflow.Management.dll
+C:\Users\adm_sat\Documents\Visual Studio 2015\Projects\K2WorkFlowMap\K2WorkflowUnitTest\bin\Debug\SourceCode.HostClientAPI.dll
+C:\Users\adm_sat\Documents\Visual Studio 2015\Projects\K2WorkFlowMap\K2WorkflowUnitTest\bin\Debug\SourceCode.SmartObjects.Client.dll
+C:\Users\adm_sat\Documents\Visual Studio 2015\Projects\K2WorkFlowMap\K2WorkflowUnitTest\bin\Debug\K2WorkflowMap.pdb
+C:\Users\adm_sat\Documents\Visual Studio 2015\Projects\K2WorkFlowMap\K2WorkflowUnitTest\obj\Debug\K2WorkflowUnitTest.csprojResolveAssemblyReference.cache
+C:\Users\adm_sat\Documents\Visual Studio 2015\Projects\K2WorkFlowMap\K2WorkflowUnitTest\obj\Debug\K2WorkflowUnitTest.dll
+C:\Users\adm_sat\Documents\Visual Studio 2015\Projects\K2WorkFlowMap\K2WorkflowUnitTest\obj\Debug\K2WorkflowUnitTest.pdb
