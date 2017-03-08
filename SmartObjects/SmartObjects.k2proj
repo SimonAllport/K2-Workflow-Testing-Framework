@@ -33,6 +33,9 @@
     <Content Include="K2C.TST.SMO.TestTables.sodx">
       <SubType>Content</SubType>
     </Content>
+    <Content Include="TestingFramework.kspx">
+      <SubType>Content</SubType>
+    </Content>
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\SourceCode\v3.5\ProjectSystem.targets" />
 </Project>
