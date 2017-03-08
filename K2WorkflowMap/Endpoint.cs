@@ -13,7 +13,12 @@ namespace K2WorkflowMap
     public class Endpoint
     {
 
-
+        /// <summary>
+        /// Starts a workflow
+        /// </summary>
+        /// <param name="Folio"></param>
+        /// <param name="WorkflowName"></param>
+        /// <returns></returns>
 
         public static int Start(string Folio, string WorkflowName)
         {
@@ -35,6 +40,11 @@ namespace K2WorkflowMap
             return result;
         }
 
+        /// <summary>
+        /// Checks the current status of a workflow and returns it's status
+        /// </summary>
+        /// <param name="ProcessInstanceId"></param>
+        /// <returns></returns>
 
         public static string CheckWorkflowStatus(string ProcessInstanceId)
         {
@@ -59,6 +69,12 @@ namespace K2WorkflowMap
 
         }
 
+        /// <summary>
+        /// Checks to see if a task exists and returns true
+        /// </summary>
+        /// <param name="ProcessInstanceId"></param>
+        /// <param name="ProcessName"></param>
+        /// <returns></returns>
         public static bool TasksExist(string ProcessInstanceId, string ProcessName)
         {
             bool result = false;
@@ -80,6 +96,12 @@ namespace K2WorkflowMap
             return result;
         }
 
+        /// <summary>
+        /// Checks the number of tasks for a workflow instance and returns the number of tasks available
+        /// </summary>
+        /// <param name="ProcessInstanceId"></param>
+        /// <param name="ProcessName"></param>
+        /// <returns></returns>
         public static int NumberOfTasks(string ProcessInstanceId, string ProcessName)
         {
             int result = 0;
@@ -102,6 +124,12 @@ namespace K2WorkflowMap
         }
 
 
+        /// <summary>
+        /// Gets tasks details
+        /// </summary>
+        /// <param name="ProcessInstanceId"></param>
+        /// <param name="ProcessName"></param>
+        /// <returns></returns>
         public static tasklist GetTask(string ProcessInstanceId, string ProcessName)
         {
 
@@ -125,7 +153,12 @@ namespace K2WorkflowMap
             return result;
         }
     
-
+        /// <summary>
+        /// Opens a task
+        /// </summary>
+        /// <param name="SN"></param>
+        /// <param name="DestinationUser"></param>
+        /// <returns></returns>
         public static List<TaskDetails> OpenTaskDetails(string SN, string DestinationUser)
     {
 
@@ -152,7 +185,12 @@ namespace K2WorkflowMap
         return result;
     }
 
-
+/// <summary>
+/// Gets a list of actions for a task
+/// </summary>
+/// <param name="SN"></param>
+/// <param name="DestinationUser"></param>
+/// <returns></returns>
         public static List<ActionList> TaskActions(string SN, string DestinationUser)
         {
 
@@ -186,6 +224,13 @@ namespace K2WorkflowMap
 
         }
 
+        /// <summary>
+        /// Actions a task
+        /// </summary>
+        /// <param name="SN"></param>
+        /// <param name="Action"></param>
+        /// <param name="DestinationUser"></param>
+        /// <returns></returns>
         public static bool CompleteTask(string SN, string Action, string DestinationUser)
         {
 
@@ -212,6 +257,11 @@ namespace K2WorkflowMap
 
         }
 
+        /// <summary>
+        /// Gets a list of activities for a process instance
+        /// </summary>
+        /// <param name="ProcessInstanceId"></param>
+        /// <returns></returns>
         public static List<Activities> GetActivities(string ProcessInstanceId)
         {
            WorkflowInstanceFramework framework = new WorkflowInstanceFramework();
@@ -242,6 +292,11 @@ namespace K2WorkflowMap
 
         }
 
+        /// <summary>
+        /// Gets events in activity
+        /// </summary>
+        /// <param name="ActivityId"></param>
+        /// <returns></returns>
         public static List<Events> GetEvents(string ActivityId)
         {
             WorkflowInstanceFramework framework = new WorkflowInstanceFramework();
@@ -275,6 +330,11 @@ namespace K2WorkflowMap
         }
 
 
+        /// <summary>
+        /// Gets a  list of datafields for process instance
+        /// </summary>
+        /// <param name="ProcessInstanceId"></param>
+        /// <returns></returns>
         public static List<dataField> GetProcessDataFields(string ProcessInstanceId)
         {
             WorkflowInstanceFramework framework = new WorkflowInstanceFramework();
@@ -306,7 +366,10 @@ namespace K2WorkflowMap
         }
 
 
-
+        /// <summary>
+        /// Gets a list of processes
+        /// </summary>
+        /// <returns></returns>
         public static List<Workflow> GetProcesses()
         {
 
@@ -339,7 +402,11 @@ namespace K2WorkflowMap
 
         }
 
-
+        /// <summary>
+        /// Gets lists of activities at design timne
+        /// </summary>
+        /// <param name="ProcId"></param>
+        /// <returns></returns>
         public static List<ActivityDesign> ActivityDesign(int ProcId)
         {
             WorkflowInstanceFramework framework = new WorkflowInstanceFramework();
@@ -374,19 +441,7 @@ namespace K2WorkflowMap
 
 
 
-
-    public class Test
-    {
-        public static void BuildTestPattern()
-        {
-
-
-
-
-        } 
-
-
-    }
+    
 
         
 

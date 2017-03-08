@@ -1,0 +1,38 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" ToolsVersion="14.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <ProjectGuid>8eb2b1a6-4c10-4b3d-9474-3c2ee817c3df</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <RootNamespace>SmartObjects</RootNamespace>
+    <AssemblyName>SmartObjects</AssemblyName>
+    <Language>C#</Language>
+    <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
+    <Name>SmartObjects</Name>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)' == 'Debug' ">
+    <IncludeDebugInformation>true</IncludeDebugInformation>
+    <OutputPath>bin\Debug\</OutputPath>
+    <EnableUnmanagedDebugging>false</EnableUnmanagedDebugging>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)' == 'Release' ">
+    <IncludeDebugInformation>false</IncludeDebugInformation>
+    <OutputPath>bin\Release\</OutputPath>
+    <EnableUnmanagedDebugging>false</EnableUnmanagedDebugging>
+  </PropertyGroup>
+  <ItemGroup>
+    <Content Include="K2C.TST.SMO.TestAdmin.sodx">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="K2C.TST.SMO.TestDetails.sodx">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="K2C.TST.SMO.TestRun.sodx">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="K2C.TST.SMO.TestTables.sodx">
+      <SubType>Content</SubType>
+    </Content>
+  </ItemGroup>
+  <Import Project="$(MSBuildExtensionsPath)\SourceCode\v3.5\ProjectSystem.targets" />
+</Project>

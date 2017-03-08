@@ -9,7 +9,11 @@ namespace K2WorkflowMap
 {
     public class TestPlan
     {
-
+        /// <summary>
+        /// SmartObject call to get a certain test plan
+        /// </summary>
+        /// <param name="TestId"></param>
+        /// <returns></returns>
         public static List<TestPlanTest> BuildTestPlan(int TestId)
         {
 
@@ -33,7 +37,6 @@ namespace K2WorkflowMap
 
                 smartObject.MethodToExecute = "List_1";
                 smartObject.GetMethod("List_1").Parameters["pTestId"].Value = TestId.ToString();
-                // smartObject.Properties["pTestId"].Value = TestId.ToString();
                 SourceCode.SmartObjects.Client.SmartObjectList smoList = serverName.ExecuteList(smartObject);
                 foreach (SourceCode.SmartObjects.Client.SmartObject item in smoList.SmartObjectsList)
                 {
@@ -43,12 +46,10 @@ namespace K2WorkflowMap
 
 
                     int testrunid = 0;
-                    //    int testtypeid = 0;
-                    int parameters = 0;
+                  int parameters = 0;
                     int Milliseconds = 0;
                     int.TryParse(item.Properties["NumberOfParameters"].Value, out parameters);
                     int.TryParse(item.Properties["TestRunId"].Value, out testrunid);
-                    //  int.TryParse(item.Properties["TestTypeId"].Value, out testtypeid);
                     int.TryParse(item.Properties["Milliseconds"].Value, out Milliseconds);
 
                     list.Add(new TestPlanTest
@@ -91,7 +92,11 @@ namespace K2WorkflowMap
 
         }
 
-
+        /// <summary>
+        /// Gets the test details
+        /// </summary>
+        /// <param name="TestId"></param>
+        /// <returns></returns>
         public static List<TestPlanDetails> GetTestDetails(int TestId)
         {
 
@@ -115,14 +120,9 @@ namespace K2WorkflowMap
                 SourceCode.SmartObjects.Client.SmartObject returnSmartObject;
                 smartObject.MethodToExecute = "List_NaN_NaN";
                 smartObject.GetMethod("List_NaN_NaN").Parameters["pTestId"].Value = TestId.ToString();
-                //   smartObject.Properties["pTestid"].Value = TestId.ToString();
-
+             
                 returnSmartObject =  serverName.ExecuteScalar(smartObject);
-                //SourceCode.SmartObjects.Client.SmartObjectList smoList = serverName.ExecuteList(smartObject);
-                //foreach (SourceCode.SmartObjects.Client.SmartObject item in smoList.SmartObjectsList)
-                //{
-
-
+            
 
                     int ProcessTypeId = 0;
                     int ProcessInstanceId = 0;
@@ -149,7 +149,7 @@ namespace K2WorkflowMap
                         Route = returnSmartObject.Properties["Route"].Value
 
                     });
-                //}
+            
 
             }
 
@@ -175,6 +175,15 @@ namespace K2WorkflowMap
 
         }
 
+        /// <summary>
+        /// Updates the test details to say it has started
+        /// </summary>
+        /// <param name="TestDetailsid"></param>
+        /// <param name="ProcessInstanceId"></param>
+        /// <param name="Folio"></param>
+        /// <param name="Originator"></param>
+        /// <param name="StartedDate"></param>
+        /// <param name="Started"></param>
         private static void UpdateTestDetails(int TestDetailsid, int ProcessInstanceId, string Folio, string Originator, DateTime StartedDate, bool Started)
         {
             SourceCode.Hosting.Client.BaseAPI.SCConnectionStringBuilder hostServerConnectionString = new SourceCode.Hosting.Client.BaseAPI.SCConnectionStringBuilder();
@@ -210,6 +219,10 @@ namespace K2WorkflowMap
             }
             }
 
+        /// <summary>
+        /// Update the test details to say it has finished
+        /// </summary>
+        /// <param name="TestId"></param>
         private static void UpdateTestDetailsEnd(int TestId)
         {
             
@@ -239,6 +252,13 @@ namespace K2WorkflowMap
                 serverName.Connection.Close();
             }
             }
+
+/// <summary>
+/// Replaces parameters with their runtime value
+/// </summary>
+/// <param name="parametername"></param>
+/// <param name="TestId"></param>
+/// <returns></returns>
         public static string AutoBuildTestParameters(string parametername, int TestId)
         {
 
@@ -274,13 +294,13 @@ namespace K2WorkflowMap
                     }
                 case "processinstanceid":
                     {
-                     //   var p = GetTestDetails(TestId);
+                   
                         result = GetTestDetails(TestId)[0].ProcessInstanceId.ToString();
                         break;
                     }
                 case "activities":
                     {
-                    //    var p = GetTestDetails(TestId);
+                  
                         result = GetTestDetails(TestId)[0].Route.ToString();
                         break;
                     }
@@ -301,6 +321,10 @@ namespace K2WorkflowMap
             return result;
         }
 
+        /// <summary>
+        /// Runs the test
+        /// </summary>
+        /// <param name="TestId"></param>
         public static void RunTest(int TestId)
         {
             object Result = null;
@@ -372,6 +396,15 @@ namespace K2WorkflowMap
 
         }
 
+        /// <summary>
+        /// Reflection method, to dynamically call  a method in class 
+        /// </summary>
+        /// <param name="typeName"></param>
+        /// <param name="methodName"></param>
+        /// <param name="parameter"></param>
+        /// <param name="Milliseconds"></param>
+        /// <param name="parameters"></param>
+        /// <returns></returns>
         private static object Invoke(string typeName, string methodName, List<string> parameter, int Milliseconds, int parameters)
         {
             if (Milliseconds > 0)
@@ -426,6 +459,13 @@ namespace K2WorkflowMap
             return value;
         }
 
+        /// <summary>
+        /// Records the test result
+        /// </summary>
+        /// <param name="TestRunId"></param>
+        /// <param name="Actual"></param>
+        /// <param name="Expected"></param>
+        /// <param name="Sign"></param>
         private static void RecordResult(int TestRunId, object Actual, string Expected,string Sign)
         {
             SourceCode.Hosting.Client.BaseAPI.SCConnectionStringBuilder hostServerConnectionString = new SourceCode.Hosting.Client.BaseAPI.SCConnectionStringBuilder();
@@ -449,11 +489,7 @@ namespace K2WorkflowMap
                 smartObject.GetMethod("Execute_NaN").Parameters["pPass"].Value = Result(Actual, Expected, Sign).ToString();
 
 
-                //smartObject.Properties["pTestRunId"].Value = TestRunId.ToString();
-                //smartObject.Properties["pResult"].Value = Actual.ToString();
-                //smartObject.Properties["pExpectedResult"].Value = Expected;
-                //smartObject.Properties["pPass"].Value = Result(Actual, Expected, "").ToString();
-                serverName.ExecuteScalar(smartObject);
+                       serverName.ExecuteScalar(smartObject);
 
             }
             catch (Exception ex)
@@ -468,7 +504,13 @@ namespace K2WorkflowMap
 
         }
 
-
+        /// <summary>
+        /// Works out the result
+        /// </summary>
+        /// <param name="Actual"></param>
+        /// <param name="Expected"></param>
+        /// <param name="Sign"></param>
+        /// <returns></returns>
         private static Boolean Result(object Actual, string Expected, string Sign)
         {
             Boolean Result = false;
@@ -513,6 +555,10 @@ namespace K2WorkflowMap
             return Result;
         }
 
+        /// <summary>
+        /// Reflection method to build a list based on methods in a class
+        /// </summary>
+        /// <returns></returns>
         public static List<MethodList> GetMethods()
         {
             List<MethodList> list = new List<MethodList>();
